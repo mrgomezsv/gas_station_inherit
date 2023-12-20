@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nitro_custom3_nitro_custom3,nitro_custom3.nitro_custom3,model_nitro_custom3_nitro_custom3,base.group_user,1,1,1,1

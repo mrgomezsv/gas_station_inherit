@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+            <record id="view_nitro_gas_stacion_form" model="ir.ui.view"><!-- Definición las vistas como siempre-->
+            <field name="name">view.nitro.gas.stacion.form</field><!-- Le damos un nombre como siempre-->
+            <field name="model">nitro.gas.stacion</field><!-- El modelo donde estara-->
+            <field name="inherit_id" ref="nitro_gas.view_nitro_gas_stacion_form"/><!-- Esto nos permite extender hacia la vista de sale.order-->
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='top-info_car']" position="after">
+                    <group name="conta" string="Operaciones Contables">
+                      <group name="left" string="Izquierda">
+                        <field name="_regular"/>
+                        <field name="_super"/>
+                        <field name="_diesel"/>
+                      </group>
+                      <group name="right" string="Derecha">
+                        <field name="_neto"/>
+                        <field name="_iva"/>
+                        <field name="_fovial"/>
+                        <field name="_total_sale"/>
+                      </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_nitro_gas_stacion_tree" model="ir.ui.view">
+            <field name="name">view.nitro.gas.stacion.tree</field>
+            <field name="model">nitro.gas.stacion</field>
+            <field name="inherit_id" ref="nitro_gas.view_nitro_gas_stacion_tree"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='fuel_litres']" position="after">
+                    <field name="_neto" string="Venta Neta" sum="Total"/>
+                    <field name="_iva" string="IVA" sum="Total"/>
+                    <field name="_fovial" string="Fovial" sum="Total"/>
+                    <field name="_total_sale" string="Venta Total" sum="Total Vendido"/>
+              </xpath>
+            </field>
+        </record>
+  </data>
+</odoo>
